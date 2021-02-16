@@ -18,6 +18,12 @@ struct stack_addresses
 // Global Stacks Struct 
 stacks{true,(stack_node*)NULL,(stack_addresses*)NULL};
 
+// Stack Representation Constructor Deffinition
+stack::rep::rep(int i)
+{
+    this->i = i;
+}
+
 // Pushes a value at the top of stack
 void stack::push_stack(stack::id id, long long value)
 {

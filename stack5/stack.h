@@ -11,7 +11,7 @@ public:
 
     private:
         int i ;
-        rep(int i) {this->i =i;};
+        rep(int);
         rep(const rep&);
         void operator= (const rep &);
     };
