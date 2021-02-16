@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := all
 
 $(shell mkdir -p bin)
-NUMS :=  $(shell seq -s " bin/stack" 0 3)
+NUMS :=  $(shell seq -s " bin/stack" 0 15)
 NUMS := bin/stack$(NUMS)
 
 
