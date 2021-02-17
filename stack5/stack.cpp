@@ -61,6 +61,7 @@ void stack::destroy_stack(stack::id id)
 {
     if (id) 
     {
+        while (pop_stack(id) != LONG_LONG_MIN);
         stack::id temp = id;
         delete (temp);
         id = NULL;

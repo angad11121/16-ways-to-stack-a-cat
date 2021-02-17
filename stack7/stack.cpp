@@ -11,7 +11,7 @@ void stack::push_stack(stack::id id, long long value)
     // Pushing the value
     else
     {
-        rep::stack_node * temp = new rep::stack_node();
+        stack_node * temp = new stack_node();
         temp->value = value;
         temp->below = id->top;
         id->top = temp;
@@ -36,7 +36,7 @@ long long stack::pop_stack(stack::id id)
     // Pop
     else
     {
-        rep::stack_node *temp = id->top;
+        stack_node *temp = id->top;
         long long value = temp->value;
         id->top = id->top->below;
         delete temp;
@@ -50,7 +50,7 @@ stack::id stack::create_stack()
 {
     // Allocating New Memory
     
-    id temp = new rep();
+    id temp = new stack();
     temp->top = NULL;
 
     return (temp);
@@ -75,7 +75,7 @@ void stack::print_stack(stack::id id, int i)
     if(!id) return;
 
     // Printing
-    rep::stack_node * temp = id->top;
+    stack_node * temp = id->top;
     cout<<(i)<<" ";
     while (temp)
     {

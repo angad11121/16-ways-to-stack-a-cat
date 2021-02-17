@@ -1,6 +1,25 @@
 #include "stack.h"
 #include <limits.h>
 
+class stack_rep
+{
+    private:
+        friend class stack;
+    class stack_node
+    {
+        friend stack_rep;
+        friend stack;
+
+        private:
+            long long value;
+            struct stack_node *below;
+    };
+    stack_node *top;
+
+    stack_rep() = default;
+    stack_rep(const stack_rep&);
+    void operator= (const stack_rep &);
+};
 
 // Pushes a value at the top of stack
 void stack::push_stack(stack::id id, long long value)
@@ -11,7 +30,7 @@ void stack::push_stack(stack::id id, long long value)
     // Pushing the value
     else
     {
-        rep::stack_node * temp = new rep::stack_node();
+        stack_rep::stack_node * temp = new stack_rep::stack_node();
         temp->value = value;
         temp->below = id->top;
         id->top = temp;
@@ -36,7 +55,7 @@ long long stack::pop_stack(stack::id id)
     // Pop
     else
     {
-        rep::stack_node *temp = id->top;
+        stack_rep::stack_node *temp = id->top;
         long long value = temp->value;
         id->top = id->top->below;
         delete temp;
@@ -50,7 +69,7 @@ stack::id stack::create_stack()
 {
     // Allocating New Memory
     
-    id temp = new rep();
+    id temp = new stack_rep();
     temp->top = NULL;
 
     return (temp);
@@ -61,7 +80,6 @@ void stack::destroy_stack(stack::id id)
 {
     if (id) 
     {
-        while (pop_stack(id) != LONG_LONG_MIN);
         stack::id temp = id;
         delete (temp);
         id = NULL;
@@ -75,7 +93,7 @@ void stack::print_stack(stack::id id, int i)
     if(!id) return;
 
     // Printing
-    rep::stack_node * temp = id->top;
+    stack_rep::stack_node * temp = id->top;
     cout<<(i)<<" ";
     while (temp)
     {
