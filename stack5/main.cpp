@@ -33,7 +33,7 @@ int main()
     // Printing and Deleting Final Stacks
     for (int i = 1; i <= m; i++)
     {
-        stack::print_stack(stacks[i-1]);
+        stack::print_stack(stacks[i-1],i);
     }
     for (int i = m; i >= 1; i--)
     {

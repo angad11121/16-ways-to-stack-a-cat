@@ -10,8 +10,18 @@ public:
         friend stack;
 
     private:
-        int i ;
-        rep(int);
+        class stack_node
+        {
+            friend rep;
+            friend stack;
+
+            private:
+                long long value;
+                struct stack_node *below;
+        };
+        stack_node *top;
+
+        rep() = default;
         rep(const rep&);
         void operator= (const rep &);
     };
@@ -20,7 +30,7 @@ public:
     static void destroy_stack(id);
     static void push_stack(id, long long);
     static long long pop_stack(id);
-    static void print_stack(id);
+    static void print_stack(id,int);
 
 private:
     virtual void dummy() = 0;
