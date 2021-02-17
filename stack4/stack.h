@@ -18,7 +18,7 @@ public:
 
             private:
                 long long value;
-                struct stack_node *below;
+                stack_node *below;
         };
         stack_node *top;
     };

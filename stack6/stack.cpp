@@ -12,7 +12,7 @@ class stack_rep
 
         private:
             long long value;
-            struct stack_node *below;
+            stack_node *below;
     };
     stack_node *top;
 
@@ -80,6 +80,7 @@ void stack::destroy_stack(stack::id id)
 {
     if (id) 
     {
+        while (pop_stack(id) != LONG_LONG_MIN);
         stack::id temp = id;
         delete (temp);
         id = NULL;

@@ -18,10 +18,9 @@ private:
     stack_node *top;
 
 public:
-    typedef stack* id;
-    static id create_stack();
-    static void destroy_stack(id);
-    static void push_stack(id, long long);
-    static long long pop_stack(id);
-    static void print_stack(id,int);
+    stack();
+    ~stack();
+    void push(long long);
+    long long pop();
+    void print(int);
 };
