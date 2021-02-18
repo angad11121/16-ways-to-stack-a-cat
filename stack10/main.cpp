@@ -1,4 +1,5 @@
-#include "stack.h"
+#include "lstack.h"
+#include "astack.h"
 int main()
 {
     // Input
@@ -6,7 +7,11 @@ int main()
     cin>>m>>n;
 
     // Stack Creation
-    stack stacks[m];
+    astack* stacks[m];
+    for (int i = 0; i < m; i++)
+    {
+        stacks[i] = new astack(n);
+    }
 
     // Queries
     int id;
@@ -18,20 +23,18 @@ int main()
         if (instruction == "push")
         {
             cin>>value;
-            stacks[id-1].push(value);
+            stacks[id-1]->push(value);
         }
         else if(instruction == "pop")
         {
-            stacks[id-1].pop();
+            stacks[id-1]->pop();
         }
     }
 
     // Printing and Deleting Final Stacks
     for (int i = 1; i <= m; i++)
     {
-        stacks[i-1].print(i);
+        stacks[i-1]->print(i);
     }
-
-
     return 0;
 }

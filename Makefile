@@ -7,5 +7,5 @@ NUMS := bin/stack$(NUMS)
 
 all: $(NUMS)
 
-bin/stack%: stack%/main.cpp stack%/stack.cpp stack%/stack.h
+bin/stack%: stack%/main.cpp stack%/stack.cpp stack%/*.h
 	g++ $< $(word 2, $^) -o $@
