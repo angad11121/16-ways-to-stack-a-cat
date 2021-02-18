@@ -1,6 +1,6 @@
-#include "stack.h"
+#include "rep.h"
 
-class astack: public stack
+class astack: public rep
 {
 private:
     int max_size;
@@ -8,10 +8,10 @@ private:
     long long * arr;
 
 public:
-    public:
     astack(int);
     ~astack();
     void push(long long);
     long long pop();
     void print(int);
+    int size();
 };
