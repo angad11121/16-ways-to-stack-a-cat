@@ -47,6 +47,7 @@ long long astack::pop()
     curr_size--;
     return arr[curr_size];
 }
+
 // Initialises stack member
 lstack::lstack(int n)
 {
@@ -60,6 +61,7 @@ astack::astack(int n)
     curr_size = 0;
     arr = new long long [max_size];
 }
+
 // Destruction
     lstack::~lstack()
     {

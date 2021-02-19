@@ -3,9 +3,10 @@
 #include <limits.h>
 using namespace std;
 
-
 typedef long long (*PllF) (void *, long long);
 
+
+// Operations Struct
 struct oper_link
 {
     oper_link *next;
@@ -15,9 +16,14 @@ struct oper_link
     oper_link(int oo, PllF ff, oper_link * nn) : oper(oo), fct(ff), next(nn) {}
 };
 
+
+// Class holding a stack and possible operations
 class ll_object
 {
+    // For Rep 
     void *p;
+
+    // List of Operations allowed
     oper_link* oper_table;
 
 public:

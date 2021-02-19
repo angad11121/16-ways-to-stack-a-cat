@@ -105,6 +105,7 @@ void rep::print(int i)
     return; 
 }
 
+// Destroying used nodes
 void rep::destroy()
 {
     while (pop() != LONG_LONG_MIN);

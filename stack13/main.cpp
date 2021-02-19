@@ -1,6 +1,5 @@
 #include "rep.h"
 
-
 int main()
 {
     // Input

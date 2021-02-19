@@ -271,4 +271,95 @@ In order to be able to compile and run the assignment following steps are requir
     };
     ```
 
+12. #### Stack 11 / Changing Operations
+
+    It is convenient to be able to replace/update some functions for better/safer/faster etc. version without terminating or pausing the programs. These updates can be made on running programs via the use of Virtual Tables. Here some functions of lstack class are replaced by llstack.:
+
+    llstack.h:
+
+    ```c++
+    #include"stack.h"
+    class llstack: public lstack{
+    public:
+    	llstack(int size) : lstack(size) {}
+    	llstack(noop x) : lstack(x) {}
+    	void push(long long);
+    	long long pop();
+    	//...    
+    };
+    ```
+
+    Using these constructors we overload the definition of lstack() allowing us redefinition of functions.
+
     
+
+13. #### Stack 12 / Changing representations
+
+    Another thing that a user might want to do is change the representation of data based on changing needs. It is possible that as the range of data increases/decreases we might want to change to array/linked list implementation (in case of a stack).
+
+    Here `stack class` has a pointer to `rep class` object. The rep class further has two derived classes based on the implementation array/list and the member functions are virtual for overriding purposes. Stack class can access the data via pointers to functions.
+
+    ```c++
+    class stack{
+    	rep* p;
+    public:
+    	stack(int size) ;
+    	˜stack() ;
+    	rep* get_rep() { return p; }
+    	void put_rep(rep* q) { p= q; }
+    	void push(long long val) { p->push(val) ; }
+    	int size() { return p->size() ; }
+        // ...
+    };
+    ```
+
+    **Note: Here size is used by both representations as there is a conversion required**
+
+     The class stack also consists of a function to allow changing from list to array implementation. (Array to list is not implemented for the sake of symmetric code).  
+
+    #### **NOTE: Since the assignment input did not specify any thing about the conversion. Initially all the stacks are implemented as lists and then the First Stack is changed to an Array implementation for demonstration purposes**
+
+14. #### Stack 13 / Changing Set of Operations
+
+    Similar to above two. Allows independence of choosing which operations are useful to a particular stack. Allows updation and modification of the operations.
+
+    Implementation is similar to Stack12 where instead of Representation, Operations are fluid.
+
+    There are 3 header files  here `oper, stack, rep` for operations, stack, and representation respectively. Stack and Rep function similar to the above method while rep allow the freedom of changing operations to a stack.   
+
+    oper.h:
+
+    ```c++
+    typedef long long (*PllF) (void *, long long);
+    
+    
+    // Operations Struct
+    struct oper_link
+    {
+        oper_link *next;
+        int oper;
+        PllF fct;
+    
+        oper_link(int oo, PllF ff, oper_link * nn) : oper(oo), fct(ff), next(nn) {}
+    };
+    
+    
+    // Class holding a stack and possible operations
+    class ll_object
+    {
+        void *p;
+        oper_link* oper_table;
+    
+    public:
+        ll_object(oper_link* tbl = 0 , void* rep = 0) : oper_table(tbl), p(rep) { }
+        long long operator() (int oper ,long long arg = 0);
+        void add_oper (int, PllF);
+        void clear_oper();
+        void clear_oper_util(oper_link*);
+    };
+    
+    
+    ```
+
+    
+

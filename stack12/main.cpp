@@ -35,7 +35,11 @@ int main()
             stacks[id-1]->pop();
         }
     }
+    
+    // Converting First Stack to Array Implementation to demonstrate.
     stack::convert_l_to_a(stacks[0]);
+
+
     // Printing and Deleting Final Stacks
     for (int i = 1; i <= m; i++)
     {

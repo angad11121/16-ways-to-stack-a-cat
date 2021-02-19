@@ -1,6 +1,7 @@
 #pragma once
 #include "stack.h"
 
+// Struct for representation
 struct rep
 {
     class stack_node
@@ -18,6 +19,9 @@ struct rep
     void destroy();
 };
 
+/* 
+    Stack Functions (Interface) 
+*/
 static long long stack_push_fct(void *p , long long value)
 {
     ((rep *) p)->push(value);
