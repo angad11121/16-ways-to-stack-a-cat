@@ -363,3 +363,9 @@ In order to be able to compile and run the assignment following steps are requir
 
     
 
+#### **NOTE: The implementation of code in assignment may slightly vary from the given PDF due to the I/O format of the assignment.**
+
+#### **1.  One case would be the use of Print Stack Function in most codes not given in PDF.**
+
+#### **2.  Another such case is the Max size allowed for the Stack. Since there was no limit provided by the assignment and most of the implementation being linked list there are only few cases where the input size is considered. An example would be Stack12 where the conversion from list to array took place, making it a necessity to know the size. **
+
