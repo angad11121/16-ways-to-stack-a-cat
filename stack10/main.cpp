@@ -35,7 +35,6 @@ int main()
     for (int i = 1; i <= m; i++)
     {
         stacks[i-1]->print(i);
-        stacks[i-1]->~astack();
         delete(stacks[i-1]); 
     }
     return 0;
